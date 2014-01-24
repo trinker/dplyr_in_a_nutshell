@@ -2,7 +2,7 @@ dplyr In a Nutsehll
 ===
 
 ```{r setup, include=FALSE, echo=FALSE}
-opts_chunk$set(comment=NA)
+opts_chunk$set(comment=NA, tidy=FALSE)
 ```
 
 # 8 dplyr Functions to Rule the World
@@ -46,6 +46,8 @@ order + with     |  arrange          | "I only have to specify dataframe once?"
 ### Chaining
 
 `%*%`... Do you know ggplot2's `+`?  Same idea.  
+
+![](chain.png)
 
 *Basically previous input in chain supplied as argument 1 to function on right side.*
 

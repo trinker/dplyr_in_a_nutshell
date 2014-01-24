@@ -46,6 +46,8 @@ order + with     |  arrange          | "I only have to specify dataframe once?"
 
 `%*%`... Do you know ggplot2's `+`?  Same idea.  
 
+![](chain.png)
+
 *Basically previous input in chain supplied as argument 1 to function on right side.*
 
 # Demos
@@ -56,8 +58,9 @@ library(dplyr)
 
 mtcars2 <- tbl_df(mtcars)
 
-mtcars2 %.% group_by(cyl) %.% summarise(md = mean(disp), mh = mean(hp), mdh = mean(disp + 
-    hp))
+mtcars2 %.%
+    group_by(cyl) %.%
+    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp))
 ```
 
 ```
@@ -70,8 +73,10 @@ Source: local data frame [3 x 4]
 ```
 
 ```r
-mtcars2 %.% group_by(cyl, gear) %.% summarise(md = mean(disp), mh = mean(hp), 
-    mdh = mean(disp + hp)) %.% arrange(-cyl, -gear)
+mtcars2 %.%
+    group_by(cyl, gear) %.%
+    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %.%
+    arrange(-cyl, -gear)
 ```
 
 ```
@@ -91,8 +96,11 @@ Groups: cyl
 
 ```r
 ## Use `%.%` with base functions too!!!
-mtcars2 %.% group_by(cyl, gear) %.% summarise(md = mean(disp), mh = mean(hp), 
-    mdh = mean(disp + hp)) %.% arrange(-cyl, -gear) %.% head()
+mtcars2 %.%
+    group_by(cyl, gear) %.%
+    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %.%
+    arrange(-cyl, -gear) %.%
+	head()
 ```
 
 ```
