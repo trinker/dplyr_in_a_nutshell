@@ -1,5 +1,7 @@
-dplyr In A Nutshell
+dplyr In A Nutshell 
 ===
+
+This is a minimal guide, mostly for myself, to remind me of the most import dplyr functions and how they relate to base R functions that I'm familiar with. 
 
 # 8 dplyr Functions to Rule the World
 
