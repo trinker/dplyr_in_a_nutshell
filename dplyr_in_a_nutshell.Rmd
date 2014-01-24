@@ -71,6 +71,13 @@ mtcars2 %.%
     summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %.%
     arrange(-cyl, -gear) %.%
 	head()
+mtcars2 %.%
+    group_by(cyl) %.%
+    summarise(max(disp), hp[1])
+mtcars2 %.%
+    group_by(cyl) %.%
+    summarise(n = n()) 
+table(mtcars$cyl) 
 ```
 
 

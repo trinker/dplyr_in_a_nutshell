@@ -116,6 +116,46 @@ Groups: cyl
 6   4    5 107.7 102.0 209.7
 ```
 
+```r
+mtcars2 %.%
+    group_by(cyl) %.%
+    summarise(max(disp), hp[1])
+```
+
+```
+Source: local data frame [3 x 3]
+
+  cyl max(disp) hp[1]
+1   4     146.7    93
+2   8     472.0   175
+3   6     258.0   110
+```
+
+```r
+mtcars2 %.%
+    group_by(cyl) %.%
+    summarise(n = n()) 
+```
+
+```
+Source: local data frame [3 x 2]
+
+  cyl  n
+1   4 11
+2   8 14
+3   6  7
+```
+
+```r
+table(mtcars$cyl) 
+```
+
+```
+
+ 4  6  8 
+11  7 14 
+```
+
 
 
 
