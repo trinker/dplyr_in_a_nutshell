@@ -1,0 +1,40 @@
+# dplyr In a Nutsehll
+
+mtcars %*%
+    
+
+p_funs(dplyr)
+
+group_by
+filter
+
+summarise 
+
+order_by
+desc
+
+
+
+mtcars2 <- tbl_df(mtcars)
+
+filter(mtcars2, cyl == 8)
+select(mtcars2, mpg, cyl, hp:vs)
+arrange(mtcars2, cyl, disp)
+mutate(mtcars2, displ_l = disp / 61.0237)
+summarise(mtcars2, mean(disp))
+summarise(group_by(mtcars2, cyl), m=mean(disp), m+1)
+
+"+" <- %.%
+mtcars2 %.%
+    group_by(cyl) %.%
+    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp))
+
+
+mtcars2 %.%
+    group_by(cyl) %.%
+    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %.%
+    arrange(-md)
+
+
+
+
