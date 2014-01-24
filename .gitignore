@@ -1,9 +1,8 @@
 # History files
 .Rhistory
-
 # Example code in package build process
 *-Ex.R
-
 .Rprofile
 .Rproj.user
 dplyr_in_a_nutshell.Rproj
+README.html
