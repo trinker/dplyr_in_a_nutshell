@@ -1,7 +1,6 @@
 dplyr In a Nutsehll
 ===
 
----
 ```{r setup, include=FALSE, echo=FALSE}
 opts_chunk$set(comment=NA)
 ```
@@ -25,8 +24,6 @@ opts_chunk$set(comment=NA)
 ### Chaining
 
 `%.%`
-
----
 
 # Relating the Functions
 
@@ -52,9 +49,7 @@ order + with     |  arrange          | "I only have to specify dataframe once?"
 
 *Basically previous input in chain supplied as argument 1 to function on right side.*
 
----
-
-#Demos
+# Demos
 
 ```{r}
 library(dplyr)

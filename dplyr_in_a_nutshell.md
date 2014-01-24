@@ -1,7 +1,6 @@
 dplyr In a Nutsehll
 ===
 
----
 
 
 
@@ -24,8 +23,6 @@ dplyr In a Nutsehll
 ### Chaining
 
 `%.%`
-
----
 
 # Relating the Functions
 
@@ -51,9 +48,7 @@ order + with     |  arrange          | "I only have to specify dataframe once?"
 
 *Basically previous input in chain supplied as argument 1 to function on right side.*
 
----
-
-#Demos
+# Demos
 
 
 ```r
