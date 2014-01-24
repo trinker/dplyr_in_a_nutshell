@@ -53,28 +53,17 @@ order + with     |  arrange          | "I only have to specify dataframe once?"
 *Basically previous input in chain supplied as argument 1 to function on right side.*
 
 # Demos
-### The 5 Guys and Speedy Table
+### The 5 Guys 
 
 ```r
 library(dplyr)
+mtcars2 <- tbl_df(mtcars)
 ```
 
-```
-Attaching package: 'dplyr'
 
-The following objects are masked from 'package:stats':
-
-filter, lag
-
-The following objects are masked from 'package:base':
-
-intersect, setdiff, setequal, union
-```
+### Speedy Table
 
 ```r
-
-mtcars2 <- tbl_df(mtcars)
-
 filter(mtcars2[1:10, ], cyl == 8)
 ```
 

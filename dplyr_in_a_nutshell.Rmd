@@ -54,12 +54,14 @@ order + with     |  arrange          | "I only have to specify dataframe once?"
 *Basically previous input in chain supplied as argument 1 to function on right side.*
 
 # Demos
-### The 5 Guys and Speedy Table
-```{r}
+### The 5 Guys 
+```{r, message=FALSE}
 library(dplyr)
-
 mtcars2 <- tbl_df(mtcars)
+```
 
+### Speedy Table
+```{r, message=FALSE}
 filter(mtcars2[1:10, ], cyl == 8)
 select(mtcars2[1:10, ], mpg, cyl, hp:vs)
 arrange(mtcars2[1:10, ], cyl, disp)

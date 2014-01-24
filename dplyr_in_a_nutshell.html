@@ -259,26 +259,15 @@ hr {
 
 <h1>Demos</h1>
 
-<h3>The 5 Guys and Speedy Table</h3>
+<h3>The 5 Guys</h3>
 
 <pre><code class="r">library(dplyr)
-</code></pre>
-
-<pre><code>Attaching package: &#39;dplyr&#39;
-
-The following objects are masked from &#39;package:stats&#39;:
-
-filter, lag
-
-The following objects are masked from &#39;package:base&#39;:
-
-intersect, setdiff, setequal, union
-</code></pre>
-
-<pre><code class="r">
 mtcars2 &lt;- tbl_df(mtcars)
+</code></pre>
 
-filter(mtcars2[1:10, ], cyl == 8)
+<h3>Speedy Table</h3>
+
+<pre><code class="r">filter(mtcars2[1:10, ], cyl == 8)
 </code></pre>
 
 <pre><code>Source: local data frame [2 x 11]
