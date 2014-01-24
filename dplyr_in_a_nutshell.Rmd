@@ -1,6 +1,8 @@
 dplyr In a Nutsehll
 ===
 
+This is a minimal guide, mostly for myself, to remind me of the most import dplyr functions and how they relate to base R functions that I'm familiar with. 
+
 ```{r setup, include=FALSE, echo=FALSE}
 opts_chunk$set(comment=NA, tidy=FALSE)
 ```
@@ -52,12 +54,22 @@ order + with     |  arrange          | "I only have to specify dataframe once?"
 *Basically previous input in chain supplied as argument 1 to function on right side.*
 
 # Demos
-
+### The 5 Guys and Speedy Table
 ```{r}
 library(dplyr)
 
 mtcars2 <- tbl_df(mtcars)
 
+filter(mtcars2[1:10, ], cyl == 8)
+select(mtcars2[1:10, ], mpg, cyl, hp:vs)
+arrange(mtcars2[1:10, ], cyl, disp)
+mutate(mtcars2[1:10, ], displ_l = disp / 61.0237, displ_l_add1 = displ_l + 1)
+summarise(mtcars, mean(disp))
+```
+
+### Chaining
+
+```{r}
 mtcars2 %.%
     group_by(cyl) %.%
     summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp))
@@ -79,6 +91,5 @@ mtcars2 %.%
     summarise(n = n()) 
 table(mtcars$cyl) 
 ```
-
 
 
