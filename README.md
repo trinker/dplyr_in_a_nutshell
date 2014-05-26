@@ -46,7 +46,7 @@ order + with     |  arrange          | "I only have to specify dataframe once?"
 
 ### Chaining
 
-`%*%`... Do you know ggplot2's `+`?  Same idea.  
+`%.%`... Do you know ggplot2's `+`?  Same idea.  
 
 ![](chain.png)
 
