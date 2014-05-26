@@ -31,7 +31,7 @@ opts_chunk$set(comment=NA, tidy=FALSE)
 
 ### Speedy Table 
 
-`tbl_df` works like similar to `data.table` 
+`tbl_df` works similar to `data.table` 
 
 ### Relating the 5 Guys + 1 to base R
 
