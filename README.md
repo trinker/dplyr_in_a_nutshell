@@ -5,7 +5,6 @@ This is a minimal guide, mostly for myself, to remind me of the most import dply
 
 
 
-
 # 8 dplyr Functions to Rule the World
 
 ### Speedy Table
@@ -22,9 +21,9 @@ This is a minimal guide, mostly for myself, to remind me of the most import dply
 5. `summarise`
 6. `arrange`
 
-### Chaining
+### Chaining (pronounced "then")
 
-`%.%`
+`%>%`
 
 # Relating the Functions
 
@@ -46,7 +45,7 @@ order + with     |  arrange          | "I only have to specify dataframe once?"
 
 ### Chaining
 
-`%.%`... Do you know ggplot2's `+`?  Same idea.  
+`%>%`... Do you know ggplot2's `+`?  Same idea.  
 
 ![](chain.png)
 
@@ -59,7 +58,6 @@ order + with     |  arrange          | "I only have to specify dataframe once?"
 library(dplyr)
 mtcars2 <- tbl_df(mtcars)
 ```
-
 
 ### The 5 Guys
 
@@ -122,17 +120,18 @@ mutate(mtcars2[1:10, ], displ_l = disp / 61.0237, displ_l_add1 = displ_l + 1)
 ```
 Source: local data frame [10 x 13]
 
-    mpg cyl  disp  hp drat    wt  qsec vs am gear carb  displ_l displ_l_add1
-1  21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4 2.621932     3.621932
-2  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4 2.621932     3.621932
-3  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1 1.769804     2.769804
-4  21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1 4.227866     5.227866
-5  18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2 5.899347     6.899347
-6  18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1 3.687092     4.687092
-7  14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4 5.899347     6.899347
-8  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2 2.403984     3.403984
-9  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2 2.307300     3.307300
-10 19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4 2.746474     3.746474
+    mpg cyl  disp  hp drat    wt  qsec vs am gear carb displ_l
+1  21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4   2.622
+2  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4   2.622
+3  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1   1.770
+4  21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1   4.228
+5  18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2   5.899
+6  18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1   3.687
+7  14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4   5.899
+8  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2   2.404
+9  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2   2.307
+10 19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4   2.746
+Variables not shown: displ_l_add1 (dbl)
 ```
 
 ```r
@@ -144,13 +143,12 @@ summarise(mtcars, mean(disp))
 1      230.7
 ```
 
-
 ### Chaining
 
 
 ```r
-mtcars2 %.%
-    group_by(cyl) %.%
+mtcars2 %>%
+    group_by(cyl) %>%
     summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp))
 ```
 
@@ -159,14 +157,14 @@ Source: local data frame [3 x 4]
 
   cyl    md     mh   mdh
 1   4 105.1  82.64 187.8
-2   8 353.1 209.21 562.3
-3   6 183.3 122.29 305.6
+2   6 183.3 122.29 305.6
+3   8 353.1 209.21 562.3
 ```
 
 ```r
-mtcars2 %.%
-    group_by(cyl, gear) %.%
-    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %.%
+mtcars2 %>%
+    group_by(cyl, gear) %>%
+    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %>%
     arrange(-cyl, -gear)
 ```
 
@@ -186,11 +184,11 @@ Groups: cyl
 ```
 
 ```r
-## Use `%.%` with base functions too!!!
-mtcars2 %.%
-    group_by(cyl, gear) %.%
-    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %.%
-    arrange(-cyl, -gear) %.%
+## Use `%>%` with base functions too!!!
+mtcars2 %>%
+    group_by(cyl, gear) %>%
+    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %>%
+    arrange(-cyl, -gear) %>%
 	head()
 ```
 
@@ -208,8 +206,8 @@ Groups: cyl
 ```
 
 ```r
-mtcars2 %.%
-    group_by(cyl) %.%
+mtcars2 %>%
+    group_by(cyl) %>%
     summarise(max(disp), hp[1])
 ```
 
@@ -218,13 +216,13 @@ Source: local data frame [3 x 3]
 
   cyl max(disp) hp[1]
 1   4     146.7    93
-2   8     472.0   175
-3   6     258.0   110
+2   6     258.0   110
+3   8     472.0   175
 ```
 
 ```r
-mtcars2 %.%
-    group_by(cyl) %.%
+mtcars2 %>%
+    group_by(cyl) %>%
     summarise(n = n()) 
 ```
 
@@ -233,8 +231,8 @@ Source: local data frame [3 x 2]
 
   cyl  n
 1   4 11
-2   8 14
-3   6  7
+2   6  7
+3   8 14
 ```
 
 ```r
@@ -246,6 +244,5 @@ table(mtcars$cyl)
  4  6  8 
 11  7 14 
 ```
-
 
 
