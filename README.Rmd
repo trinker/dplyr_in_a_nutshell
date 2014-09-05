@@ -23,9 +23,9 @@ opts_chunk$set(comment=NA, tidy=FALSE)
 5. `summarise`
 6. `arrange`
 
-### Chaining
+### Chaining (pronounced "then")
 
-`%.%`
+`%>%`
 
 # Relating the Functions
 
@@ -47,7 +47,7 @@ order + with     |  arrange          | "I only have to specify dataframe once?"
 
 ### Chaining
 
-`%.%`... Do you know ggplot2's `+`?  Same idea.  
+`%>%`... Do you know ggplot2's `+`?  Same idea.  
 
 ![](chain.png)
 
@@ -72,24 +72,24 @@ summarise(mtcars, mean(disp))
 ### Chaining
 
 ```{r}
-mtcars2 %.%
-    group_by(cyl) %.%
+mtcars2 %>%
+    group_by(cyl) %>%
     summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp))
-mtcars2 %.%
-    group_by(cyl, gear) %.%
-    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %.%
+mtcars2 %>%
+    group_by(cyl, gear) %>%
+    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %>%
     arrange(-cyl, -gear)
-## Use `%.%` with base functions too!!!
-mtcars2 %.%
-    group_by(cyl, gear) %.%
-    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %.%
-    arrange(-cyl, -gear) %.%
+## Use `%>%` with base functions too!!!
+mtcars2 %>%
+    group_by(cyl, gear) %>%
+    summarise(md=mean(disp), mh=mean(hp), mdh=mean(disp + hp)) %>%
+    arrange(-cyl, -gear) %>%
 	head()
-mtcars2 %.%
-    group_by(cyl) %.%
+mtcars2 %>%
+    group_by(cyl) %>%
     summarise(max(disp), hp[1])
-mtcars2 %.%
-    group_by(cyl) %.%
+mtcars2 %>%
+    group_by(cyl) %>%
     summarise(n = n()) 
 table(mtcars$cyl) 
 ```
