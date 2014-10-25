@@ -1,7 +1,7 @@
 dplyr In a Nutshell
 ===
 
-This is a minimal guide, mostly for myself, to remind me of the most import dplyr functions and how they relate to base R functions that I'm familiar with. Also check out [tidyr In a Nutshell](https://github.com/trinker/tidyr_in_a_nutshell)
+This is a minimal guide, mostly for myself, to remind me of the most import dplyr functions and how they relate to base R functions that I'm familiar with. Also check out [tidyr In a Nutshell](https://github.com/trinker/tidyr_in_a_nutshell).
 
 
 
