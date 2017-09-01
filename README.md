@@ -29,7 +29,7 @@ This is a minimal guide, mostly for myself, to remind me of the most import dply
 
 ### Speedy Table 
 
-`tbl_df` works similar to `as.data.table` in that it prints sensibly.
+`tbl_df` works similar to `data.table` in that it prints sensibly.
 
 ### Relating the 5 Guys + 1 to base R
 
