@@ -29,7 +29,7 @@ This is a minimal guide, mostly for myself, to remind me of the most import dply
 
 ### Speedy Table 
 
-`tbl_df` works similar to `data.table` 
+`tbl_df` works similar to `as.data.table` in that it prints sensibly.
 
 ### Relating the 5 Guys + 1 to base R
 
@@ -40,7 +40,7 @@ Base Function    | dplyr Function(s) | Special Powers
 subset           |  filter & select  | filter rows & select columns
 transform        |  mutate           | operate with columns not yet created
 split            |  group_by         | splits without cutting
-lapply + do.call |  summarise        | apply and join in a single bound
+lapply + do.call |  summarise        | apply and bind in a single bound
 order + with     |  arrange          | "I only have to specify dataframe once?"
 
 ### Chaining
